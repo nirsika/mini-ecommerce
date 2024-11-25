@@ -1,0 +1,1094 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>BuyNest</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    header {
+      background-color: #043261;
+      color: rgb(241, 94, 8);
+      padding: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      top: 0;
+      z-index: 1000px;
+      width: 100%;
+    }
+
+    .header-text {
+      position: absolute;
+      left: 0;
+      margin-left: 250px;
+      font-size: 40px;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .header-container {
+      width: 80%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: space-between;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .star-rating i {
+      color: #ccc;
+      margin-right: 5px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .star-rating .active {
+      color: #e9950f;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+    }
+
+    .search-bar button {
+      padding: 10px;
+      border: none;
+      background-color: #3498db;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .search-bar button:hover {
+      background-color: #10a07c;
+    }
+
+    .main-content {
+      display: flex;
+      padding: 20px 0;
+    }
+
+    .featured-products {
+      padding: 40px 20px;
+      background-color: hwb(152 77% 3%);
+      text-align: center;
+    }
+
+    .featured-products h2 {
+      font-size: 28px;
+      margin-bottom: 40px;
+    }
+
+    .product-cards {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .product-card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      width: 220px;
+      margin: 15px;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar {
+      padding: 30px 500px;
+    }
+
+    .nav-link {
+      color: #f8f9fa;
+      transition: color 0.3s;
+      float: left;
+    }
+
+    .nav-link:hover {
+      color: #ffc107;
+    }
+    .navbar-nav .nav-link.active {
+        color: #000000;
+        background-color: #f2f3f5;
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+
+    .product-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product-card h4 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .product-card p {
+      font-size: 16px;
+      color: #3498db;
+    }
+
+    .product-card button {
+      background-color: #3498db;
+      border: none;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .product-card button:hover {
+      background-color: #2980b9;
+    }
+
+    .product-cards {
+      display: flex;
+      gap: 20px;
+    }
+
+    .product-card {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+      width: 200px;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .product-card h4 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+
+    .product-card p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .product-card button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .product-card button:hover {
+      background-color: #0056b3;
+    }
+
+    footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+    }
+    footer {
+      background-color: #333;
+
+    }
+    @media (max-width: 1024px) {
+  .header-text {
+    font-size: 1.5rem;
+    margin-left: 10px;
+  }
+
+  .product-card {
+    width: calc(50% - 30px);
+  }
+
+  .search-bar input {
+    width: 150px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .header-container {
+    flex-direction: column;
+  }
+
+  .product-card {
+    width: calc(100% - 30px);
+    max-width: 300px;
+  }
+
+  .featured-products h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-text {
+    font-size: 1.2rem;
+  }
+
+  .search-bar {
+    flex-direction: column;
+  }
+
+  .search-bar input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .search-bar button {
+    width: 100%;
+  }
+
+  .product-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+}
+   
+    
+   
+  </style>
+</head>
+
+<body>
+  <header class="header">
+
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBX44OdFHILnAm-FSHP-YKts0Pp2htTciIZA&s"
+            style="height: 80px; margin:10px; position: absolute;left:0; top: 0;">
+        </a>
+        <h1 class="header-text">BUY NEST</h1>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="search-bar" style="flex: 5; max-width: 300px; margin: 0px;">
+          <form class="d-flex" action="/search" method="GET">
+            <input class="form-control me-2" type="search" placeholder="Search for anything" aria-label="Search" name="query">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="collapse navbar-collapse" style="position:absolute; left: 0px; right: 0px; margin: 0;"
+          id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false"> Categories</a>
+              <ul class="dropdown-menu">
+            </li>
+
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Electronics
+              </a>
+              <ul>
+                <li><a class="dropdown-item" href="#">Mobile Phones</h3></a></li>
+                <li><a class="dropdown-item" href="#">Laptops</a></li>
+                <li><a class="dropdown-item" href="#">Cameras</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Fashion
+              </a>
+              <ul>
+                <li><a class="dropdown-item" href="#">Men's Clothing</a></li>
+                <li><a class="dropdown-item" href="#">Women's Clothing</a></li>
+                <li><a class="dropdown-item" href="#">Baby's Clothing</a></li>
+              </ul>
+            </li>
+
+
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Home Appliances
+              </a>
+              <ul>
+                <li><a class="dropdown-item" href="#">Kitchen Stove</a></li>
+                <li><a class="dropdown-item" href="#">Blender</a></li>
+                <li><a class="dropdown-item" href="#">Oven</a></li>
+                <li><a class="dropdown-item" href="#">Heaters</a></li>
+              </ul>
+            </li>
+
+
+            <li class="dropdown-submenu">
+              <a class="dropdown-item dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Furniture
+              </a>
+              <ul>
+                <li><a class="dropdown-item" href="#">Wooden</a></li>
+                <li><a class="dropdown-item" href="#">Plastic</a></li>
+                <li><a class="dropdown-item" href="#">Glass</a></li>
+                <li><a class="dropdown-item" href="#">Bamboo</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index1.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="aboutus.html">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact Us</a>
+          </li>
+
+
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="featured-products">
+      <h2>Featured Products</h2>
+      <div class="product-cards">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN_6Mk4s1Gd4nFYSgaQaG6HeSGfQrtwtESYw&s"
+            alt="Product 1">
+          <h4>Samsung Galaxy</h4>
+          <p>59,999.00</p>
+          <div class="star-rating">
+            <i class="fas fa-star" data-index="0"></i>
+            <i class="fas fa-star" data-index="1"></i>
+            <i class="fas fa-star" data-index="2"></i>
+            <i class="fas fa-star" data-index="3"></i>
+            <i class="fas fa-star" data-index="4"></i>
+          </div>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0H60PXvjFwnpr6AZqtMn9y-LJYwPUbp4HAeiJphzHBim4rHltfzLr8wRka5Zbbti5DI8&usqp=CAU"
+            alt="Product 1">
+          <h4>Iphone</h4>
+          <p>349,999.00</p>
+          <div class="star-rating">
+            <i class="fas fa-star" data-index="0"></i>
+            <i class="fas fa-star" data-index="1"></i>
+            <i class="fas fa-star" data-index="2"></i>
+            <i class="fas fa-star" data-index="3"></i>
+            <i class="fas fa-star" data-index="4"></i>
+          </div>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src=" https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMGzRI33v9tOtNVLsz6lUozBS7GPFmywblVQ&s"
+            alt="Product 1">
+          <h4>Vivo</h4>
+          <p>69,000.00</p>
+          <div class="star-rating">
+            <i class="fas fa-star" data-index="0"></i>
+            <i class="fas fa-star" data-index="1"></i>
+            <i class="fas fa-star" data-index="2"></i>
+            <i class="fas fa-star" data-index="3"></i>
+            <i class="fas fa-star" data-index="4"></i>
+          </div>
+          <button>Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcwkW34vwGEBx6SYZMxdmlLEf9153tKnQ3RHWv7CI0qDua7k3PtP4B2Z3tDvW8t3AYcdw&usqp=CAU"
+            alt="Product 1">
+          <h4>Sumsung S24 Ultra</h4>
+          <p>299,000.00</p>
+          <div class="star-rating">
+            <i class="fas fa-star" data-index="0"></i>
+            <i class="fas fa-star" data-index="1"></i>
+            <i class="fas fa-star" data-index="2"></i>
+            <i class="fas fa-star" data-index="3"></i>
+            <i class="fas fa-star" data-index="4"></i>
+          </div>
+          <button>Add to Cart</button>
+        </div>
+
+        <!-- Product 2 -->
+        <section class="featured-products">
+          <h2>Cameras</h2>
+          <div class="product-cards">
+            <div class="product-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQYL0L_6QN21_Pc03xNZXPdcr0PZ1BHQrudw&"
+                alt="Product 1">
+              <h4>Nikon D500</h4>
+              <p>559,900.00</p>
+              <div class="star-rating">
+                <i class="fas fa-star" data-index="0"></i>
+                <i class="fas fa-star" data-index="1"></i>
+                <i class="fas fa-star" data-index="2"></i>
+                <i class="fas fa-star" data-index="3"></i>
+                <i class="fas fa-star" data-index="4"></i>
+              </div>
+              <button>Add to Cart</button>
+            </div>
+            <div class="product-card">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyj442QgS9cETxrIc7A4Oi46Qx1_VIn5OdbSNgMI0YYBYPSKLI2JV_aJ-tqVL7mcX6gBU&usqp=CAU"
+                alt="Product 1">
+              <h4>Lumix</h4>
+              <p>359,990.00</p>
+              <div class="star-rating">
+                <i class="fas fa-star" data-index="0"></i>
+                <i class="fas fa-star" data-index="1"></i>
+                <i class="fas fa-star" data-index="2"></i>
+                <i class="fas fa-star" data-index="3"></i>
+                <i class="fas fa-star" data-index="4"></i>
+              </div>
+              <button>Add to Cart</button>
+            </div>
+
+            <div class="product-card">
+              <img
+                src="data:image/jpeg;base64,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"
+                alt="Product 1">
+              <h4>Sony a7</h4>
+              <p>400,000.00</p>
+              <div class="star-rating">
+                <i class="fas fa-star" data-index="0"></i>
+                <i class="fas fa-star" data-index="1"></i>
+                <i class="fas fa-star" data-index="2"></i>
+                <i class="fas fa-star" data-index="3"></i>
+                <i class="fas fa-star" data-index="4"></i>
+              </div>
+              <button>Add to Cart</button>
+            </div>
+            <div class="product-card">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzWJ6KHRxbZ_uyEa0qjWUSDy23e74eTcQeEA&s"
+                alt="Camera 3">
+              <h4>Nikon D200</h4>
+              <p>519,999.00</p>
+              <div class="star-rating">
+                <i class="fas fa-star" data-index="0"></i>
+                <i class="fas fa-star" data-index="1"></i>
+                <i class="fas fa-star" data-index="2"></i>
+                <i class="fas fa-star" data-index="3"></i>
+                <i class="fas fa-star" data-index="4"></i>
+              </div>
+              <button>Add to Cart</button>
+            </div>
+
+            <section class="featured-products">
+              <h2>Laptops</h2>
+              <div class="product-cards">
+                <div class="product-card">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvPUKFRkmjcUR4zRD-2JCgouRa37qvrV_FIg&s"
+                    alt="Product 1">
+                  <h4>Dell</h4>
+                  <p>189,000.00</p>
+                  <div class="star-rating">
+                    <i class="fas fa-star" data-index="0"></i>
+                    <i class="fas fa-star" data-index="1"></i>
+                    <i class="fas fa-star" data-index="2"></i>
+                    <i class="fas fa-star" data-index="3"></i>
+                    <i class="fas fa-star" data-index="4"></i>
+                  </div>
+                  <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSz3vKnzwlUXvzqSz44xnGD6lhhuqwJsal35hus7AXkNW26UdSpMHSLZFLYy9UwxfD_6B4&usqp=CAU"
+                    alt="Product 1">
+                  <h4>Acer</h4>
+                  <p>199,000.00</p>
+                  <div class="star-rating">
+                    <i class="fas fa-star" data-index="0"></i>
+                    <i class="fas fa-star" data-index="1"></i>
+                    <i class="fas fa-star" data-index="2"></i>
+                    <i class="fas fa-star" data-index="3"></i>
+                    <i class="fas fa-star" data-index="4"></i>
+                  </div>
+                  <button>Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKPgQCOYC9lPzSazEeWo0-MB6zLNcRhNoNzZHpjMCh0aH6-biVZU2tQBeZYbddJ1KmtoM&usqp=CAU"
+                    alt="Product 1">
+                  <h4>Hp</h4>
+                  <p>149,000.00</p>
+                  <div class="star-rating">
+                    <i class="fas fa-star" data-index="0"></i>
+                    <i class="fas fa-star" data-index="1"></i>
+                    <i class="fas fa-star" data-index="2"></i>
+                    <i class="fas fa-star" data-index="3"></i>
+                    <i class="fas fa-star" data-index="4"></i>
+                  </div>
+                  <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                  <img
+                    src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMREhAQEBASFRUQEBYPFxIQEBARExAPFREXFhUSFRUYHSggGBoqGxUXIT0hJSkrLy4uFyIzOD8tNygtLy0BCgoKDg0OGxAQGi0lHx8tKys3My0rLS43NSsvNSsrLy01KysvLS03MTctLS0tMTctLS0rNystLS0wLy8wLSs3Mv/AABEIALUBFwMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABgIDBAUHCAH/xABIEAABAwIDAwUJDgQGAwAAAAABAAIDBBESITEFBkEHEyJRYRQyQlJUcYGRoRYjM0NTYmSTorHB0dLwFXKCkiREo7LC8Rdjg//EABkBAQEBAQEBAAAAAAAAAAAAAAABAwQCBf/EACkRAQACAQMDAgYDAQAAAAAAAAABAgMREiEEMVFBYRMicaHR4ZGx8AX/2gAMAwEAAhEDEQA/AO2IiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiI42zOXaUBFiT7VgYLvniHnkb9102btSGoDnQTMkDThdgdctPU4aj0oMtERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAK19Tt6lj7+qgHZzrCfUCru16BtTBNTvc5rZ4nRFzDZzQ5pGJp6xe68o75bsz7PqXU9Tdx75kuZbNFfJ7b+0cDkvVa7p0WI1ejqzlI2ZFcOrYyRwbcn22Wjn5Ztn3LYhPKepkTgT5sivO1O8sIc3Ig3uFuyxtX02ER1QzDrhjag9p0ZJ87Q8bapkrNOfRvTp5vX5Z58fh1PafLkGDoUEgvkOecAD6Rp6lHqjlvrpAeahhj893/eFEaSu50mGobgmacJDhhxOHCx0d2f8ASw6+iLTkpGmvLCPdIazlL2pL/m+bv8ky33kq1srbjppmfxCrrHRE2cYJmxOHbk3MdmSiWK2RVbJVvsrMcN6bPD0NQ8n+ypWsmETqgOGJr5qmpkB4Zgvt15EZFWdp7M/hLxXULMNO0WqKdtyImcZ2DXB4zRpbEMwVznk931ko3iI9OJ7heMuAvwuwnJr/AD2BAsbdEt7vQ1sc8YlicHMdcaEEEGzmOac2uBBBacwQQVhMTE6SyyV2y2Gy9oMqI2zREFrhfIg2Nr29qylzYl2xqgPYCaCoeGlo0pJnHKPsjJJwnwScOhC6NTztka17DdrhcEdSjwrREQEREBFjyVYBsM7epfBV9ntQZKLHE57FUHnr+5BeRWr+f1r7ZBcJ7V8xBUoqKsaokmDQXEZAX4ISseJvOnEe8aeiPHPjHsQZcb7gOF8wDmLHMXzHAr6iKAiIgIiICIiAiIgKPb87pQ7UpjBL0Xt6cUwF3Qy217WnQt4jqIBEhRB4923seajnkpqhmGSM2I1Dhwe08WkZgrFjcRmF6b5StxmbUgBZhZUwgmKQ6OHGGQ+IevwTn1g+a6ukfC98UrHMfG4scxwsWuGoK6qX3Ry6sNtfq2eOOraI53BkrRaOosTkNGS2zczt1b2jJUCofE7uasGFwAwyEghzToS7RwPjeta1mS3VPUxzRinqgSwd5I23OQOPFhOretpyPYbEcuTHOPmvbx+HZkwR1Eaxxf8Av9+/8+Wt2lRWWqJtqt5VRyUhbDP04ni8UzLlrm9nmuLtOY9V8CupuIzBzBGYISt/WHy7VtSdJ4mGPHL2rsXJ1t6SWPFCQaiMBr4XODGV0TAABc5MnaC0B+hBax2QBbxS9lut2tqvge58Zs5g50C9sRj74ebmzJ6QOpXNM2prXvH+0bYpredt+0/b3em6WpgrYHiwfG8OhkikbZzHaPhlYc2uF8wfP1FR7YdbJsqoFFUOc+mmcTTzuuSABnDIflGj+5oB1BC1mwdsCrw1dI9jKrAGva82irI2jKKe2jh4MmrdM2khSbHT7Up5YJGua5pDJYXWZUUk4za7LRwPSa8ZHUXF1jiyxkjjvHePDxnwXw323/Ux5hMQb5jMHO40I60UF3Q21LTS/wAMr3AvaLxTWwtnivYPaOGeRb4LstCCp0tWQsKvq7dBpz4nq7POm0a3AMLe+P2R1rUNcgyWFXmOWMxyutKoymuV1pWMwq80oLwKrurTSqwURUi+KxK4vPNtP8zh4I6h2oPh99OEd409I+OfFHZ+/PmgWyCpjYGgNAsAqlFEREBERAREQEREBERAREQFzzlW3A7vZ3VTNAqom2Lch3VEPiyfHHA+g6gjoaKxOnKxMxOsPHvNkEggggkEEEEEGxBB0N+CuMC7Pyt7g85j2jRsvIBinhaM5WgfDMA1eBqPCGeo6XHWNvmOOfoW2/dD6/TXjJGsd2yoK0YTDOwSQv75h4Hg9h8Fw6x9ywdq7DlpmiWIPmpJLlsgYfe7atfbvXDr0PrA2O7uze6amnp+EsrWutqGXu8j+kFej4Imsa1jGhrWNDWtaLBrQLAAdS5dml9Y7J/0b0mtYmPm8+3v59nkOdgObcwVVsn4aJvB7uaP8sgwO9jivR+9XJ5R1wc7mxBMfjoWgXd1yMyEnsPaFw3eXdOp2XPGZ2XZzrSydlzFJYg5HwXWHenPLiM16ns+TWdJiVmkqZ9mTMJJwPAkY4XwyRnMOb+I4Fda2PtSPaAiqIZhDWQtwsntcPZqaeob8ZETw1acxnrDKSWGaJ1FUtxMY4saRk+JzSWh7DwOXmPFR2emqNlSte12OJx6Mrb4X9hHgut4PqvqufLim076cWj7+0u/DnpNfgZ+a+k+tf07bVOj2m00k47lr6X35gNnFjrWE8Lvjqd2hA4GxsbFbHdjex5ZJS1TcNVTERuYTcHLovv4TSMw7iO0FQ/Ym26fakUbZXuZLEcUVREcM1NJ4zHdXW05FXdrvlc+JlXzcdfH0aWsb73S7Vivfud5+KkJ8E967NuTrH1hzxk4ni0d4c/U9NfBbS3MT2n0lNOcJJJNyTclXGlaTd/bDamO9i17CWSRvGF8cjTZzHN4OByI/AhbhpXQ52S0rX7U3lpaXEJ6mFr2sx806aJsjhwAa5wzPbZRvlL3tOz6Yc0Rz9QSyMkX5sC2OW3Ei4AvxI1sQoryS7mvkldtGvic6/Th58kuklJuZ3Ndmewnib8AUHYdnTufGx7sIxtDwGEuaGuF29IgYsuNgs5pWM0q60oMlpVYKsNKSS4bWFycgOs/kgrmkNwxnfO+yPGKyYIQwWHnJ4k8SVTSwYQSc3OzJ7erzK8oCIiAiIgIiICIiAiIgIiICIiAiIg+rivKruL3O59fSM95eS6eNo+AeTnM0fJk6jwTnoTh7Svj2ggggEEWIIuCDqCOISJaYstsdt1Xn/krpcW0I3fJRySenBg/5rt6hVBuszZe0TM02paqMwRX0p6h8jCIHHg12EhpPHoa4cU1Ub9bmrlvFq+IFZrKSOZjopo2vY8YXMeA5rh2gq8irkeZNpu5qrrGDRlXO0DqAndZbjZ+1GvY6GZofG8Wcx2h7ew9ozC0u+vQ2ltBv0yV3oc/F+KwoJ1YprWJhpevzSztpbKkoXCppHOfBe58aL5r7cPnaddslPt2N7YK6F1JWMbIyQWdG/r4OadWuHAjMKIbM2sWGx0ORBzBB1BHELF2nsPM1NBcEdJ0A1HWY+sfN1HDqHNmwRk5ji0dpdXTdXsr8LLG6k+nj3hMNu0tXsuVlbE51TSGzJJtZ2RjJgqAO+LRkJOI6Jt0bT/ZG0mVEbZYnAtcAcj1rm+4vKBpFMRmMJDrEOByIIOoUinp2UB7toR/hHm9RTAkimLj8NF1RX1b4ORGV7ecXUTu+Hl4t9pTqeinHHxMc7qT6+Pqm7WjUgaW0Gh1HmV9pWFR1LZGtew3a4XBWU0rrcTIaVca5Y7Sqy8AEk2Az9CC++YNFz/2eoLLoaYj3x/fO4eI3q86xtmUxeRM8ZDvGn/ee39+faqAiIgIiICIiAiIgIiICItVX7x0sEhilna14AJaWvJAIuNAg2qLSjeyj8oH1cv6VV7qaT5cfVy/pQbhFpzvTSAX57/Tl/T+/SrLN8qIuwick2vYRTaf29qDfItL7q6T5U/VTfpXw72Unyrvqpf0oN2ij7986MayP+pk/JUe7ejwOl5x+Frg0nmpMidMrXQb2spGTRvilYHskaWOY4XDmnUFR6klfTyikqHF2K/c9Q43NQxouYpD8u0A/wA7RiGYeG3Yd9aN+bXvP/xkH4Kjae2aKpjdFKZC11nAtje18b2nEyRjrdF7XAEHgQg2aLkW09tbcZI9kM0csbXWZLzFNGXs4FzXC4d1jS+mSwnbc3hOkgHmjofxagh/Ki3DtauH/ta7+6Fh/FR2GZSjbG7O0qqZ9RURl8klsT8dMy+FoaOi2wGQHBYXuHrvJz9bD+paVtpGj3NuWHDOtnRVzmEEFWfcbXj4g/Ww/qWJPsuojcWPdGxw1a6qpWuFxcXBfcZKWmJSZiW42ls1lX77ERHPrfRsp+d1O7fX1rJ3W3xlpXmnqQRbokPHA8COII9YK0NPQVRDnRkEMF3FlRTuDBnm4h2Wh9Sortn1MjWPm6TR0WvdNBbtAcHZ6H2rDLhrlrttDfpurvgnjmJ7xPaXUdj7UbRSNwOxUVQ4Bmd+5ZD8Ufm+Kf6eAv0OKQOAc0ggi4I0IPFebYKarMZawvMbwWkNmY5jhxGTrHNdF5O96XxB1PWXDWC7XnpZ306N+37+JVxVvWulp10eM9sdr644mIn0l1IFXdn03PuxH4Jh+tcP+I/fZqaetZO6zXjmWtxyyA3IacmsAF8z7B7ZPFtGAN6LwGtHUWhrR2kLRizkWEzbEBa5wmjLWC7nB4LWgaknQBP4vBaM8/HaY2jONtpTpZnjajTrUGaisx1bHYsLwcLsDsOeF4AJabaGxGXaq+eb1+woK0VHPDr9hTnm9fsKCtFRzzev2FfO6G9fsKC4itd0t6/YVcY4EXCD6iIgKM7wblxVc3dBlkjeWBjsGEh2HQ55g2y9AUmRBA6rk8d0eZrCNcXOscbjhbC4WSk5Pn3dztYbZYeaa8HtuXOPYp4iuohw3Bb5ZP8Av0odwm+WT/v0qYopqIb7gG+Vzfv+pfDyft8rn/fpUzRNRB5OThjtayf2fmtdXclri0Nhr34SbubMy4PVbCRn510lFdRzmg5NJGm0lcQ22XNMcH4vO51rehbJvJ+B/n6r7CmiJqIadwfp9V9hBuF9PqvsKZIpqIeNxfp9T9hffcL9OqfsKXorqIcdw/p9T9hUv5P2nWrm/f8AUpmimohP/jtnlk/7/qWoqOTCV7S19VE4XuA+OVzewlpfqumorqOew8lcQa1vdUgsNGMDWg8bC+Qusqi5OI4g4Mqpekbk2AJ9RU4RQQeo3FmGUFc4Nd37XsPSta1iD51kUG5sjbiWqcdLc2ZR573cpgiCODdQad0zZ8MT8/tL6N1Rl/iZejpm7o+bpZKRIg0A3aIvaqmF87hztevvsyqRuw/y+q/ub+SkKII+N2n+X1X9zfyVQ3cf5dU+tv5LfIg0fuff5bUekt/JYjd36rjWf79FJ0QaluxSB8PKe0k39hC2NNDgaG3Jtxcbkq6iAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIgIiICIiAiIg/9k"
+                    alt="Product 1">
+                  <h4>Apple M1 pro</h4>
+                  <p>299,000.00</p>
+                  <div class="star-rating">
+                    <i class="fas fa-star" data-index="0"></i>
+                    <i class="fas fa-star" data-index="1"></i>
+                    <i class="fas fa-star" data-index="2"></i>
+                    <i class="fas fa-star" data-index="3"></i>
+                    <i class="fas fa-star" data-index="4"></i>
+                  </div>
+                  <button>Add to Cart</button>
+                </div>
+
+                <section class="featured-products">
+                  <h2>Men's clothing</h2>
+                  <div class="product-cards">
+                    <div class="product-card">
+                      <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrVk6r30wsJTDb85FqQAhHQB0CdTZMf3x54RpicpNbGXV-TBTgWUWnCAxkWratUH-2Ijo&usqp=CAU"
+                        alt="Product 1">
+                      <h4>Men's long sleeve</h4>
+                      <p>1999.00</p>
+                      <div class="star-rating">
+                        <i class="fas fa-star" data-index="0"></i>
+                        <i class="fas fa-star" data-index="1"></i>
+                        <i class="fas fa-star" data-index="2"></i>
+                        <i class="fas fa-star" data-index="3"></i>
+                        <i class="fas fa-star" data-index="4"></i>
+                      </div>
+                      <button>Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                      <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwadg_0MA_iKl8A77lIaPw2l7YPufZcWQYBoKiGdKtBYxTuw2UFtdtHLFyGs3TmwYVHrk&usqp=CAU"
+                        alt="Product 1">
+                      <h4>Blazer Slimfit</h4>
+                      <p>5000.00</p>
+                      <div class="star-rating">
+                        <i class="fas fa-star" data-index="0"></i>
+                        <i class="fas fa-star" data-index="1"></i>
+                        <i class="fas fa-star" data-index="2"></i>
+                        <i class="fas fa-star" data-index="3"></i>
+                        <i class="fas fa-star" data-index="4"></i>
+                      </div>
+                      <button>Add to Cart</button>
+                    </div>
+                    <div class="product-card">
+                      <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO50HUFM3xpU04ugK7k_279pHpjGQgdW0-yQ&s"
+                        alt="Product 1">
+                      <h4>jeans</h4>
+                      <p>5000.00</p>
+                      <div class="star-rating">
+                        <i class="fas fa-star" data-index="0"></i>
+                        <i class="fas fa-star" data-index="1"></i>
+                        <i class="fas fa-star" data-index="2"></i>
+                        <i class="fas fa-star" data-index="3"></i>
+                        <i class="fas fa-star" data-index="4"></i>
+                      </div>
+                      <button>Add to Cart</button>
+                    </div>
+
+                    <div class="product-card">
+                      <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXokssxYfWct5iS4YH4oG0UYZee6bizQCKZg&s"
+                        alt="Product 1">
+                      <h4>Long sleeved T-shirt</h4>
+                      <p>1500.00</p>
+                      <div class="star-rating">
+                        <i class="fas fa-star" data-index="0"></i>
+                        <i class="fas fa-star" data-index="1"></i>
+                        <i class="fas fa-star" data-index="2"></i>
+                        <i class="fas fa-star" data-index="3"></i>
+                        <i class="fas fa-star" data-index="4"></i>
+                      </div>
+                      <button>Add to Cart</button>
+                    </div>
+
+                    <section class="featured-products">
+                      <h2>Women's Clothing</h2>
+                      <div class="product-cards">
+                        <div class="product-card">
+                          <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrat13GTZVtkZWZLK0BjOlW8rOA3B6IMLv6yBC_VPHjeBQ_6mG3R0iVFqq6E6b1inOmDw&usqp=CAU"
+                            alt="Product 1">
+                          <h4>Elegant Pink Lace</h4>
+                          <p>2500.00</p>
+                          <div class="star-rating">
+                            <i class="fas fa-star" data-index="0"></i>
+                            <i class="fas fa-star" data-index="1"></i>
+                            <i class="fas fa-star" data-index="2"></i>
+                            <i class="fas fa-star" data-index="3"></i>
+                            <i class="fas fa-star" data-index="4"></i>
+                          </div>
+                          <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                          <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBoy4HZsf-bOypFmzKI_obFKT6LYuIEJf1oggL9hNNMbFSvD33KZesWACiBcphkqhN3gs&usqp=CAU"
+                            alt="Product 1">
+                          <h4>African Traditional </h4>
+                          <p>2000.00</p>
+                          <div class="star-rating">
+                            <i class="fas fa-star" data-index="0"></i>
+                            <i class="fas fa-star" data-index="1"></i>
+                            <i class="fas fa-star" data-index="2"></i>
+                            <i class="fas fa-star" data-index="3"></i>
+                            <i class="fas fa-star" data-index="4"></i>
+                          </div>
+                          <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                          <img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoQykxlLxn3ltLLcXkTghFtERsRIqRQswoinvQO5Y3eK05TBhwmYrdKbtt-igmBx8JNvY&usqp=CAU alt"
+                            alt="Product 1">
+                          <h4>Antra A-line Dark </h4>
+                          <p>1800.00</p>
+                          <div class="star-rating">
+                            <i class="fas fa-star" data-index="0"></i>
+                            <i class="fas fa-star" data-index="1"></i>
+                            <i class="fas fa-star" data-index="2"></i>
+                            <i class="fas fa-star" data-index="3"></i>
+                            <i class="fas fa-star" data-index="4"></i>
+                          </div>
+                          <button>Add to Cart</button>
+                        </div>
+                        <div class="product-card">
+                          <img src="https://i.pinimg.com/736x/15/5e/63/155e63c0fd78896d5759d39f1548a853.jpg"
+                            alt="Product 1">
+                          <h4>Salwar </h4>
+                          <p>3499.00</p>
+                          <div class="star-rating">
+                            <i class="fas fa-star" data-index="0"></i>
+                            <i class="fas fa-star" data-index="1"></i>
+                            <i class="fas fa-star" data-index="2"></i>
+                            <i class="fas fa-star" data-index="3"></i>
+                            <i class="fas fa-star" data-index="4"></i>
+                          </div>
+                          <button>Add to Cart</button>
+                        </div>
+                        <section class="featured-products">
+                          <h2>Baby's Clothing</h2>
+                          <div class="product-cards">
+                            <div class="product-card">
+                              <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhY3TGqQkfM49wQ77TxwaddGsmDwIGrPnzl7XPeL8UsYyjflqM8ZykYxIvUyjzP3mFojg&usqp=CAU"
+                                alt="Product 1">
+                              <h4>romper with big initials</h4>
+                              <p>1980.00</p>
+                              <div class="star-rating">
+                                <i class="fas fa-star" data-index="0"></i>
+                                <i class="fas fa-star" data-index="1"></i>
+                                <i class="fas fa-star" data-index="2"></i>
+                                <i class="fas fa-star" data-index="3"></i>
+                                <i class="fas fa-star" data-index="4"></i>
+                              </div>
+                              <button>Add to Cart</button>
+                            </div>
+                            <div class="product-card">
+                              <img src="https://m.media-amazon.com/images/I/71F76ttGsaL.jpg" alt="Product 1">
+                              <h4>frock</h4>
+                              <p>2099.00</p>
+                              <div class="star-rating">
+                                <i class="fas fa-star" data-index="0"></i>
+                                <i class="fas fa-star" data-index="1"></i>
+                                <i class="fas fa-star" data-index="2"></i>
+                                <i class="fas fa-star" data-index="3"></i>
+                                <i class="fas fa-star" data-index="4"></i>
+                              </div>
+                              <button>Add to Cart</button>
+                            </div>
+                            <div class="product-card">
+                              <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6FjkbXQY3tl0kVSioRFq7wvC3Rbc-XdtrBdZlF4oEabIPfGPizNLdPt6yTCSOAbLt33Y&usqp=CAU"
+                                alt="Product 1">
+                              <h4>infant girls clothes</h4>
+                              <p>2199.00</p>
+                              <div class="star-rating">
+                                <i class="fas fa-star" data-index="0"></i>
+                                <i class="fas fa-star" data-index="1"></i>
+                                <i class="fas fa-star" data-index="2"></i>
+                                <i class="fas fa-star" data-index="3"></i>
+                                <i class="fas fa-star" data-index="4"></i>
+                              </div>
+                              <button>Add to Cart</button>
+                            </div>
+                            <div class="product-card">
+                              <img
+                                src="https://i.etsystatic.com/49346502/r/il/314311/6394718472/il_1080xN.6394718472_c0bq.jpg"
+                                alt="Product 1">
+                              <h4>Girl baby outfit</h4>
+                              <p>2799.00</p>
+                              <div class="star-rating">
+                                <i class="fas fa-star" data-index="0"></i>
+                                <i class="fas fa-star" data-index="1"></i>
+                                <i class="fas fa-star" data-index="2"></i>
+                                <i class="fas fa-star" data-index="3"></i>
+                                <i class="fas fa-star" data-index="4"></i>
+                              </div>
+                              <button>Add to Cart</button>
+                            </div>
+                            <section class="featured-products">
+                              <h2>Home Appliances</h2>
+                              <div class="product-cards">
+                                <div class="product-card">
+                                  <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRX3tvRSmD0bsrZHvWYm58CTMv3jjbg-gEJxw&s"
+                                    alt="Product 1">
+                                  <h4>Kitchen Stove</h4>
+                                  <p>9,999.00</p>
+                                  <div class="star-rating">
+                                    <i class="fas fa-star" data-index="0"></i>
+                                    <i class="fas fa-star" data-index="1"></i>
+                                    <i class="fas fa-star" data-index="2"></i>
+                                    <i class="fas fa-star" data-index="3"></i>
+                                    <i class="fas fa-star" data-index="4"></i>
+                                  </div>
+                                  <button>Add to Cart</button>
+                                </div>
+                                <div class="product-card">
+                                  <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCWC8Q-aSqdDGTQOqy2yA71NI62ZhJLKtVTg&s"
+                                    alt="Product 1">
+                                  <h4>Blender</h4>
+                                  <p>6,450.00</p>
+                                  <div class="star-rating">
+                                    <i class="fas fa-star" data-index="0"></i>
+                                    <i class="fas fa-star" data-index="1"></i>
+                                    <i class="fas fa-star" data-index="2"></i>
+                                    <i class="fas fa-star" data-index="3"></i>
+                                    <i class="fas fa-star" data-index="4"></i>
+                                  </div>
+                                  <button>Add to Cart</button>
+                                </div>
+                                <div class="product-card">
+                                  <img
+                                    src="https://www.jungle.lk/wp-content/uploads/2020/11/Black-Decker-20L-Microwave-Oven-MZ2010P-B5.jpg"
+                                    alt="Product 1">
+                                  <h4>Oven</h4>
+                                  <p>32,500.00</p>
+                                  <div class="star-rating">
+                                    <i class="fas fa-star" data-index="0"></i>
+                                    <i class="fas fa-star" data-index="1"></i>
+                                    <i class="fas fa-star" data-index="2"></i>
+                                    <i class="fas fa-star" data-index="3"></i>
+                                    <i class="fas fa-star" data-index="4"></i>
+                                  </div>
+                                  <button>Add to Cart</button>
+                                </div>
+                                <div class="product-card">
+                                  <img
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPj2ZYXa-WSalorft_ZN5-4mOrLng9ACBWKIa-Dex6Y5OzG5pVhe4b9va96AIgLvhr18U&usqp=CAU"
+                                    alt="Product 1">
+                                  <h4>Heater</h4>
+                                  <p>5,989.00</p>
+                                  <div class="star-rating">
+                                    <i class="fas fa-star" data-index="0"></i>
+                                    <i class="fas fa-star" data-index="1"></i>
+                                    <i class="fas fa-star" data-index="2"></i>
+                                    <i class="fas fa-star" data-index="3"></i>
+                                    <i class="fas fa-star" data-index="4"></i>
+                                  </div>
+                                  <button>Add to Cart</button>
+                                </div>
+
+                                <section class="featured-products">
+                                  <h2>Glass Furniture</h2>
+                                  <div class="product-cards">
+                                    <div class="product-card">
+                                      <img
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Eki3Dd_33ImOYzQI-iAlyBDyBMHP2CPvvQ&s"
+                                        alt="Product 1">
+                                      <h4>Glass 1</h4>
+                                      <p>74,999.00</p>
+                                      <div class="star-rating">
+                                        <i class="fas fa-star" data-index="0"></i>
+                                        <i class="fas fa-star" data-index="1"></i>
+                                        <i class="fas fa-star" data-index="2"></i>
+                                        <i class="fas fa-star" data-index="3"></i>
+                                        <i class="fas fa-star" data-index="4"></i>
+                                      </div>
+                                      <button>Add to Cart</button>
+                                    </div>
+                                    <div class="product-card">
+                                      <img
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Cv567Amg0fhCZoFQLVZtQTy6NSmKKYJ8EQ&s"
+                                        alt="Product 1">
+                                      <h4>Glass 2</h4>
+                                      <p>4999.00</p>
+                                      <div class="star-rating">
+                                        <i class="fas fa-star" data-index="0"></i>
+                                        <i class="fas fa-star" data-index="1"></i>
+                                        <i class="fas fa-star" data-index="2"></i>
+                                        <i class="fas fa-star" data-index="3"></i>
+                                        <i class="fas fa-star" data-index="4"></i>
+                                      </div>
+                                      <button>Add to Cart</button>
+                                    </div>
+                                    <div class="product-card">
+                                      <img
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRwd5p0BuR2yUONDVJKeN28y3jmMrQ5LUicw&s"
+                                        alt="Product 1">
+                                      <h4>Glass 3</h4>
+                                      <p>9,990.00</p>
+                                      <div class="star-rating">
+                                        <i class="fas fa-star" data-index="0"></i>
+                                        <i class="fas fa-star" data-index="1"></i>
+                                        <i class="fas fa-star" data-index="2"></i>
+                                        <i class="fas fa-star" data-index="3"></i>
+                                        <i class="fas fa-star" data-index="4"></i>
+                                      </div>
+                                      <button>Add to Cart</button>
+                                    </div>
+                                    <div class="product-card">
+                                      <img
+                                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvy_aTivfvHhBAFXJtkmwFDj2sDrKVoEzmei0SgL9A50Y4HN56UkJLxxWSVlhYmilP0nU&usqp=CAU"
+                                        alt="Product 1">
+                                      <h4>Glass 4</h4>
+                                      <p>7,990.00</p>
+                                      <div class="star-rating">
+                                        <i class="fas fa-star" data-index="0"></i>
+                                        <i class="fas fa-star" data-index="1"></i>
+                                        <i class="fas fa-star" data-index="2"></i>
+                                        <i class="fas fa-star" data-index="3"></i>
+                                        <i class="fas fa-star" data-index="4"></i>
+                                      </div>
+                                      <button>Add to Cart</button>
+                                    </div>
+
+                                    <section class="featured-products">
+                                      <h2>wooden Furniture</h2>
+                                      <div class="product-cards">
+                                        <div class="product-card">
+                                          <img
+                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzk6plWtftmWOV_NiMQ0dd2ktgv_k9u0rVmA&s"
+                                            alt="Product 1">
+                                          <h4>Wooden 1</h4>
+                                          <p>109,999.00</p>
+                                          <div class="star-rating">
+                                            <i class="fas fa-star" data-index="0"></i>
+                                            <i class="fas fa-star" data-index="1"></i>
+                                            <i class="fas fa-star" data-index="2"></i>
+                                            <i class="fas fa-star" data-index="3"></i>
+                                            <i class="fas fa-star" data-index="4"></i>
+                                          </div>
+                                          <button>Add to Cart</button>
+                                        </div>
+                                        <div class="product-card">
+                                          <img
+                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2sXUTAnv9gkIpzKaP4xPaQ_HTT80bATbxOQ&s"
+                                            alt="Product 1">
+                                          <h4>Wooden 2</h4>
+                                          <p>69,999.00</p>
+                                          <div class="star-rating">
+                                            <i class="fas fa-star" data-index="0"></i>
+                                            <i class="fas fa-star" data-index="1"></i>
+                                            <i class="fas fa-star" data-index="2"></i>
+                                            <i class="fas fa-star" data-index="3"></i>
+                                            <i class="fas fa-star" data-index="4"></i>
+                                          </div>
+                                          <button>Add to Cart</button>
+                                        </div>
+                                        <div class="product-card">
+                                          <img
+                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBu5TadwaTgOR6y39i6U9w-x5eNaNLsmifZHoYS9MHnbMUWdLDD929V1LL-5W3YCkCdtI&usqp=CAU"
+                                            alt="Product 1">
+                                          <h4>Wooden 3</h4>
+                                          <p>59,999.00</p>
+                                          <div class="star-rating">
+                                            <i class="fas fa-star" data-index="0"></i>
+                                            <i class="fas fa-star" data-index="1"></i>
+                                            <i class="fas fa-star" data-index="2"></i>
+                                            <i class="fas fa-star" data-index="3"></i>
+                                            <i class="fas fa-star" data-index="4"></i>
+                                          </div>
+                                          <button>Add to Cart</button>
+                                        </div>
+                                        <div class="product-card">
+                                          <img
+                                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgg_oENfq4B3GdYyNvC5ipfqY9hIpztiRJOw&s"
+                                            alt="Product 1">
+                                          <h4>Wooden 4</h4>
+                                          <p>60,999.00</p>
+                                          <div class="star-rating">
+                                            <i class="fas fa-star" data-index="0"></i>
+                                            <i class="fas fa-star" data-index="1"></i>
+                                            <i class="fas fa-star" data-index="2"></i>
+                                            <i class="fas fa-star" data-index="3"></i>
+                                            <i class="fas fa-star" data-index="4"></i>
+                                          </div>
+                                          <button>Add to Cart</button>
+                                        </div>
+                                        <section class="featured-products">
+                                          <h2>Bamboo Furniture</h2>
+                                          <div class="product-cards">
+                                            <div class="product-card">
+                                              <img
+                                                src="https://img.freepik.com/premium-photo/photo-sustainable-bamboo-furniture-collection_933496-46227.jpg"
+                                                alt="Product 1">
+                                              <h4>Bamboo 1</h4>
+                                              <p>99,999.00</p>
+                                              <div class="star-rating">
+                                                <i class="fas fa-star" data-index="0"></i>
+                                                <i class="fas fa-star" data-index="1"></i>
+                                                <i class="fas fa-star" data-index="2"></i>
+                                                <i class="fas fa-star" data-index="3"></i>
+                                                <i class="fas fa-star" data-index="4"></i>
+                                              </div>
+                                              <button>Add to Cart</button>
+                                            </div>
+                                            <div class="product-card">
+                                              <img
+                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHbEIiKYnp8hCXCikmRZgxumHmXaXOhtOGqsltLovOf6TpWnlTFXxHK14x6svlay9lsMw&usqp=CAU"
+                                                alt="Product 1">
+                                              <h4>Bamboo 2</h4>
+                                              <p>89,550.00</p>
+                                              <div class="star-rating">
+                                                <i class="fas fa-star" data-index="0"></i>
+                                                <i class="fas fa-star" data-index="1"></i>
+                                                <i class="fas fa-star" data-index="2"></i>
+                                                <i class="fas fa-star" data-index="3"></i>
+                                                <i class="fas fa-star" data-index="4"></i>
+                                              </div>
+                                              <button>Add to Cart</button>
+                                            </div>
+                                            <div class="product-card">
+                                              <img
+                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsAGSx_y_GCTOcn7QSPewYYplpYuQWa7aMzQ&s"
+                                                alt="Product 1">
+                                              <h4>Bamboo 3</h4>
+                                              <p>24,980.00</p>
+                                              <div class="star-rating">
+                                                <i class="fas fa-star" data-index="0"></i>
+                                                <i class="fas fa-star" data-index="1"></i>
+                                                <i class="fas fa-star" data-index="2"></i>
+                                                <i class="fas fa-star" data-index="3"></i>
+                                                <i class="fas fa-star" data-index="4"></i>
+                                              </div>
+                                              <button>Add to Cart</button>
+                                            </div>
+                                            <div class="product-card">
+                                              <img
+                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNfgsECXFEy96hZ9YpTB2spsGcfuyfq6hBaA&s"
+                                                alt="Product 1">
+                                              <h4>Bamboo 4</h4>
+                                              <p>29,990.00</p>
+                                              <div class="star-rating">
+                                                <i class="fas fa-star" data-index="0"></i>
+                                                <i class="fas fa-star" data-index="1"></i>
+                                                <i class="fas fa-star" data-index="2"></i>
+                                                <i class="fas fa-star" data-index="3"></i>
+                                                <i class="fas fa-star" data-index="4"></i>
+                                              </div>
+                                              <button>Add to Cart</button>
+                                            </div>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-content">
+
+      <div class="footer-section">
+        <h3>About Our Store</h3>
+        <p>Welcome to our online store. We offer a wide variety of products to meet all your needs. From electronics to
+          home goods, we have something for everyone.</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index1.html">Home</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Subscribe to Our Newsletter</h3>
+        <form action="/subscribe" method="POST">
+          <input type="email" name="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 BuyNest Online Store. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <script>
+    document.querySelectorAll('.star-rating i').forEach(star => {
+      star.addEventListener('click', function () {
+
+        const index = this.getAttribute('data-index');
+        const stars = this.parentElement.querySelectorAll('i');
+
+
+        stars.forEach(star => {
+          star.classList.remove('active');
+        });
+
+        for (let i = 0; i <= index; i++) {
+          stars[i].classList.add('active');
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
